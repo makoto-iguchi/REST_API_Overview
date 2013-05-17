@@ -1,26 +1,26 @@
 # vim:set sts=2 sw=2 tw=0 et:
 
-# ルール:
+# How to write the overview structure template:
 #
-# 1. YAML で書く (http://jp.rubyist.net/magazine/?0009-YAML)
-# 2. ハッシュは2種類ある
-#   * セクション
-#   * メソッド
-# 3. ルート要素は セクション の配列である
-# 4. セクションの要素は以下のとおり
-#   * title: タイトル (必須)
-#   * desc: セクションの説明文 (オプション/指定がなければ空)
-#   * sections: 子 セクション の配列 (オプション)
-#   * methods: セクションに記載する メソッド の配列 (オプション)
-# 5. メソッドの要素は以下のとおり
-#   * path: リソースのパス (必須)
-#   * method: リソースのHTTPメソッド (必須)
-#   * desc: メソッドの説明文 (オプション/なければWADLから持ってくる)
+# 1. Follow YAML format (http://www.yaml.org/)
+# 2. There are two schema.
+#   * section
+#   * method
+# 3. The root will be a sequence of "section" schema.
+# 4. Each "section" schema has the following mapping elements:
+#   * title: the section title (mandatory)
+#   * desc: the section description (Optional. Will be treated as an empty if not specified)
+#   * sections: a sequence of sub-sections (optional)
+#   * methods: a sequence of methods to be described in the section (optional)
+# 5. Each "method" schema has the following mapping elements:
+#   * path: the path to the resource (mandatory)
+#   * method: HTTP method of the resource (mandatory)
+#   * desc: the method description (optional.  Will try to fetch from the WADL if not specified)
 
-# その他:
+# Memo:
 #
-# 各セクションは変換後、左側にツリーとして表示される。
-# セクションやメソッドには非表示にするための要素を追加するのも良いかも。
+# After the conversion, each section will be hierarchically listed in the left pane.
+# (TBD: add a way to configure sections and/or methods not to be shown in the left pane)
 
 - title: User Management
   desc: Blah blah blah...
