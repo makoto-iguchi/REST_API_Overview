@@ -1,0 +1,289 @@
+- title: User Management
+  sections:
+    - title: Create a new user
+      methods:
+        - path: /apps/{appID}/users
+          method: POST
+    - title: Delete the user
+      methods:
+        - path: /apps/{appID}/users/{accountType}:{address}
+          method: DELETE
+    - title: User Data
+      sections:
+        - title: Retrieve the user's data
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}
+              method: GET
+              desc: By address
+            - path: /apps/{appID}/users/{userID}
+              method: GET
+              desc: By ID
+            - path: /apps/{appID}/users/me
+              method: GET
+              desc: By "me" literal
+        - title: Modify the user's data
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}
+              method: POST
+              desc: By address
+            - path: /apps/{appID}/users/{userID}
+              method: POST
+              desc: By ID
+            - path: /apps/{appID}/users/me
+              method: POST
+              desc: By "me" literal
+        - title: Get the country
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}/country
+              method: GET
+              desc: By address
+            - path: /apps/{appID}/users/{userID}/country
+              method: GET
+              desc: By ID
+            - path: /apps/{appID}/users/me/country
+              method: GET
+              desc: By "me" literal
+        - title: Get the country
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}/display-name
+              method: GET
+              desc: By address
+            - path: /apps/{appID}/users/{userID}/display-name
+              method: GET
+              desc: By ID
+            - path: /apps/{appID}/users/me/display-name
+              method: GET
+              desc: By "me" literal
+        - title: Get the locale
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}/locale
+              method: GET
+              desc: By address
+            - path: /apps/{appID}/users/{userID}/locale
+              method: GET
+              desc: By ID
+            - path: /apps/{appID}/users/me/locale
+              method: GET
+              desc: By "me" literal
+        - title: Email address
+          sections:
+            - title: Get the email address
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/email-address
+                  method: GET
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/email-address
+                  method: GET
+                  desc: By ID
+                - path: /apps/{appID}/users/me/email-address
+                  method: GET
+                  desc: By "me" literal
+            - title: Update the email address
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/email-address
+                  method: PUT
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/email-address
+                  method: PUT
+                  desc: By ID
+                - path: /apps/{appID}/users/me/email-address
+                  method: PUT
+                  desc: By "me" literal
+            - title: Remove the email address
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/email-address
+                  method: DELETE
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/email-address
+                  method: DELETE
+                  desc: By ID
+                - path: /apps/{appID}/users/me/email-address
+                  method: DELETE
+                  desc: By "me" literal
+        - title: Phone number
+          sections:
+            - title: Get the phone number
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/phone-number
+                  method: GET
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/phone-number
+                  method: GET
+                  desc: By ID
+                - path: /apps/{appID}/users/me/phone-number
+                  method: GET
+                  desc: By "me" literal
+            - title: Update the phone number
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/phone-number
+                  method: PUT
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/phone-number
+                  method: PUT
+                  desc: By ID
+                - path: /apps/{appID}/users/me/phone-number
+                  method: PUT
+                  desc: By "me" literal
+            - title: Remove the phone number
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/phone-number
+                  method: DELETE
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/phone-number
+                  method: DELETE
+                  desc: By ID
+                - path: /apps/{appID}/users/me/phone-number
+                  method: DELETE
+                  desc: By "me" literal
+    - title: User Verification
+      sections:
+        - title: Email Address Verification
+          sections:
+            - title: Resend the verification email
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/email-address/resend-verification
+                  method: POST
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/email-address/resend-verification
+                  method: POST
+                  desc: By ID
+                - path: /apps/{appID}/users/me/email-address/resend-verification
+                  method: POST
+                  desc: By "me" literal
+            - title: Get the verificaiton code
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/email-address/verification-code
+                  method: GET
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/email-address/verification-code
+                  method: GET
+                  desc: By ID
+                - path: /apps/{appID}/users/me/email-address/verification-code
+                  method: GET
+                  desc: By "me" literal
+            - title: Vefity the email address
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/email-address/verify
+                  method: POST
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/email-address/verify
+                  method: POST
+                  desc: By ID
+                - path: /apps/{appID}/users/me/email-address/verify
+                  method: POST
+                  desc: By "me" literal
+        - title: Phone Number Verification
+          sections:
+            - title: Resend the SMS with the verification code
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/phone-number/resend-verification
+                  method: POST
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/phone-number/resend-verification
+                  method: POST
+                  desc: By ID
+                - path: /apps/{appID}/users/me/phone-number/resend-verification
+                  method: POST
+                  desc: By "me" literal
+           - title: Reset the verification code
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/phone-number/reset-verification-code
+                  method: POST
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/phone-number/reset-verification-code
+                  method: POST
+                  desc: By ID
+                - path: /apps/{appID}/users/me/phone-number/reset-verification-code
+                  method: POST
+                  desc: By "me" literal
+           - title: Get the verification code
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/phone-number/verification-code
+                  method: GET
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/phone-number/verification-code
+                  method: GET
+                  desc: By ID
+                - path: /apps/{appID}/users/me/phone-number/verification-code
+                  method: GET
+                  desc: By "me" literal
+           - title: Verify the phone number
+              methods:
+                - path: /apps/{appID}/users/{accountType}:{address}/phone-number/verify
+                  method: POST
+                  desc: By address
+                - path: /apps/{appID}/users/{userID}/phone-number/verify
+                  method: POST
+                  desc: By ID
+                - path: /apps/{appID}/users/me/phone-number/verify
+                  method: POST
+                  desc: By "me" literal
+    - title: OAuth2
+      sections:
+        - title: Request a new token
+          methods:
+            - path: /apps/{appID}/users
+              method: POST
+    - title: Password
+      sections:
+        - title: Change the password
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}/password
+              method: PUT
+              desc: By address
+            - path: /apps/{appID}/users/{userID}/password
+              method: PUT
+              desc: By ID
+            - path: /apps/{appID}/users/me/password
+              method: PUT
+              desc: By "me" literal
+        - title: Send an email for resetting the password
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}/password/reset
+              method: POST
+              desc: By address
+            - path: /apps/{appID}/users/{userID}/password/reset
+              method: POST
+              desc: By ID
+            - path: /apps/{appID}/users/me/password/reset
+              method: POST
+              desc: By "me" literal
+    - title: Change the status of the user
+      methods:
+        - path: /apps/{appID}/users/{accountType}:{address}/status
+          method: PUT
+          desc: By address
+        - path: /apps/{appID}/users/{userID}/status
+          method: PUT
+          desc: By address
+        - path: /apps/{appID}/users/me/status
+          method: PUT
+          desc: By address
+    - title: Social Integration
+      sections:
+        - title: Request a new token
+          methods:
+            - path: /apps/{appID}/integration/facebook
+              method:POST
+        - title: Link with Facebook account
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}/facebook/link
+              method: POST
+              desc: By address
+            - path: /apps/{appID}/users/{userID}/facebook/link
+              method: POST
+              desc: By ID
+            - path: /apps/{appID}/users/me/facebook/link
+              method: POST
+              desc: By "me" literal
+        - title: Unlink from Facebook account
+          methods:
+            - path: /apps/{appID}/users/{accountType}:{address}/facebook/unlink
+              method: POST
+              desc: By address
+            - path: /apps/{appID}/users/{userID}/facebook/unlink
+              method: POST
+              desc: By ID
+            - path: /apps/{appID}/users/me/facebook/unlink
+              method: POST
+              desc: By "me" literal

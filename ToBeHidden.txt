@@ -1,0 +1,107 @@
+	FileBucket
+		Application Scope (##### DOES NOT EXIST IN IMPLEMENTATION? #####)
+			Retrieve, /apps/{appID}/buckets/{bucketType}:{bucketID} GET
+			Verify, /apps/{appID}/buckets/{bucketType}:{bucketID} HEAD
+			Delete, /apps/{appID}/buckets/{bucketType}:{bucketID} DELETE
+			ACL (QUERY_OBJECTS_IN_BUCKET, CREATE_OBJECTS_IN_BUCKET, DROP_BUCKET_WITH_ALL_CONTENT)
+				Retrieve
+					All, /apps/{appID}/buckets/{bucketType}:{bucketID}/acl GET
+					With the specific verb, /apps/{appID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb} GET
+				Verify
+					Verify a user, /apps/{appID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID}} GET
+					Verify a group, /apps/{appID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+				Grant
+					Grant to a user, /apps/{appID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID}} PUT
+					Grant to a group, /apps/{appID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+				Revoke
+					Revoke from a user, /apps/{appID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID}} DELETE
+					Revoke from a group, /apps/{appID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+		Group Scope (##### DOES NOT EXIST IN IMPLEMENTATION? #####)
+			Retrieve, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID} GET
+			Verify, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID} HEAD
+			Delete, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID} DELETE
+			ACL (QUERY_OBJECTS_IN_BUCKET, CREATE_OBJECTS_IN_BUCKET, DROP_BUCKET_WITH_ALL_CONTENT)
+				Retrieve
+					All, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl GET
+					With the specific verb, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb} GET
+				Verify
+					Verify a user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+					Verify a group, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+				Grant
+					Grant to a user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+					Grant to a group, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+				Revoke
+					Revoke from a user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+					Revoke from a group, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+
+	Files
+		Application Scope(##### DOES NOT EXIST IN IMPLEMENTATION? #####)
+			Create, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects POST
+			Delete, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID} DELETE
+			Retrieve, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID} GET
+			Check the existence, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID} HEAD
+			Update (full) or create with an ID, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID} PUT
+			Update (partially), /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID} PATCH
+			Query, /apps/{appID}/buckets/{bucketType}:{bucketID}/query POST
+			Verify Body, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body HEAD
+			Retrieve Body, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body GET
+			Add or Replace Body, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body PUT
+			PublishedURL, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body/publish POST
+			ACL (READ_EXISTING_OBJECTS, WRITE_EXISTING_OBJECTS)
+				Retrieve
+					All, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl GET
+					With the specific verb, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
+				Verify
+					Verify a user, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+					Verify a group, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+				Grant
+					Grant to a user, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+					Grant to a group, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+				Revoke
+					Revoke from a user, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+					Revoke from a group, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+		Group Scope(##### DOES NOT EXIST IN IMPLEMENTATION? #####)
+			Create, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects POST
+			Delete, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID} DELETE
+			Retrieve, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID} GET
+			Check the existence, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID} HEAD
+			Update (full) or create with an ID, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID} PUT
+			Update (partially), /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID} PATCH
+			Query, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/query POST
+			Verify Body, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body HEAD
+			Retrieve Body, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body GET
+			Add or Replace Body, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body PUT
+			PublishedURL, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body/publish POST
+			ACL (READ_EXISTING_OBJECTS, WRITE_EXISTING_OBJECTS)
+				Retrieve
+					All, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl GET
+					With the specific verb, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
+				Verify
+					Verify a user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+					Verify a group, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+				Grant
+					Grant to a user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+					Grant to a group, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+				Revoke
+					Revoke from a user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+					Revoke from a group, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+
+Push Notification
+PushToApp
+	Application Scope
+		FileBucket (##### DOES NOT EXIST IN IMPLEMENTATION? #####)
+			Subscribe a filebucket (with or without a push configuration), /apps/{appID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users POST
+			Subscribe a user to the current filter (with or without a push configuration), /apps/{appID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID} PUT
+			Check if the user is subscribed to the current filter, /apps/{appID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID} GET
+			Unsubscribe the user from the current filter, /apps/{appID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID} DELETE
+			Update the push configuration of the subscription of the accessed user, /apps/{appID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID}/configuration PUT
+			Get the push configuration of the subscription of the accessed user, /apps/{appID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID}/configuration GET
+
+	Group Scope
+		FileBucket (##### DOES NOT EXIST IN IMPLEMENTATION? #####)
+			Subscribe a filebucket (with or without a push configuration), /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users POST
+			Subscribe a user to the current filter (with or without a push configuration), /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID} PUT
+			Check if the user is subscribed to the current filter, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID} GET
+			Unsubscribe the user from the current filter, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID} DELETE
+			Update the push configuration of the subscription of the accessed user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID}/configuration PUT
+			Get the push configuration of the subscription of the accessed user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/filters/{filterID}/push/subscriptions/users/{userID}/configuration GET
