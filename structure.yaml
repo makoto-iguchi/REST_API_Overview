@@ -1,0 +1,88 @@
+# vim:set sts=2 sw=2 tw=0 et:
+
+# ルール:
+#
+# 1. YAML で書く (http://jp.rubyist.net/magazine/?0009-YAML)
+# 2. ハッシュは2種類ある
+#   * セクション
+#   * メソッド
+# 3. ルート要素は セクション の配列である
+# 4. セクションの要素は以下のとおり
+#   * title: タイトル (必須)
+#   * desc: セクションの説明文 (オプション/指定がなければ空)
+#   * sections: 子 セクション の配列 (オプション)
+#   * methods: セクションに記載する メソッド の配列 (オプション)
+# 5. メソッドの要素は以下のとおり
+#   * path: リソースのパス (必須)
+#   * method: リソースのHTTPメソッド (必須)
+#   * desc: メソッドの説明文 (オプション/なければWADLから持ってくる)
+
+# その他:
+#
+# 各セクションは変換後、左側にツリーとして表示される。
+# セクションやメソッドには非表示にするための要素を追加するのも良いかも。
+
+- title: User Management
+  desc: Blah blah blah...
+  sections:
+    - title: Delete the user
+      methods:
+        - path: /apps/{appID}/users/{accountType}:{address}
+          method: DELETE
+          desc: By address
+        - path: /apps/{appID}/users/{userID}
+          method: DELETE
+          desc: By ID
+        - path: /apps/{appID}/users/id:{internalID}
+          method: DELETE
+          desc: By internal ID
+        - path: /apps/{appID}/users/me
+          method: DELETE
+          desc: By "me" literal
+    - title: Retrieve the user's data
+      methods:
+        - path: /apps/{appID}/users/{accountType}:{address}
+          method: DELETE
+          desc: By address
+        - path: /apps/{appID}/users/{userID}
+          method: DELETE
+          desc: By ID
+        - path: /apps/{appID}/users/id:{internalID}
+          method: DELETE
+          desc: By internal ID
+        - path: /apps/{appID}/users/me
+          method: DELETE
+          desc: By "me" literal
+
+- title: Group Management
+  sections:
+    - title: Create
+      methods:
+    - title: Get the data of the group
+    - title: Delete
+    - title: Get a list of groups filtered by membership or ownership
+    - title: Update the group name
+    - title: Update the group owner
+    - title: Group members
+    - title: ACL
+      sections:
+        - title: Retrieve
+        - title: Verify
+        - title: Grant
+        - title: Revoke
+          methods:
+            - path: /apps/{appID}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID}
+              method: DELETE
+              desc: Revoke from a user
+            - path: /apps/{appID}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID}
+              method: DELETE
+              desc: REvoke form a group
+
+- title: Data Management
+  sections:
+    - title: Bucket
+    - title: File Bucket
+    - title: Object Storage
+    - title: File Storage
+
+- title: Analytics

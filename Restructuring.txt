@@ -27,46 +27,150 @@ ACL (CREATE_NEW_BUCKET, CREATE_NEW_TOPIC)
 			Revoke from a group, /apps/{appID}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 	User Scope
 		Retrieve
-			All, /apps/{appID}/users/{accountType}:{address}/acl GET
-			With the specific verb, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb} GET
+			All
+				By address, /apps/{appID}/users/{accountType}:{address}/acl GET
+				By ID, /apps/{appID}/users/{userID}/acl GET
+				By "me" literal, /apps/{appID}/users/me/acl GET
+			With the specific verb
+				By address, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb} GET
+				By ID, /apps/{appID}/users/{userID}/acl/{ACLVerb} GET
+				By "me" literal, /apps/{appID}/users/me/acl/{ACLVerb} GET
 		Verify
-			Verify a user, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/UserID:{subjectUserID} GET
-			Verify a group, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+			Verify a user
+				By address, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+				By ID, /apps/{appID}/users/{userID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+				By "me" literal, /apps/{appID}/users/me/acl/{ACLVerb}/UserID:{subjectUserID} GET
+			Verify a group
+				By address, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+				By ID, /apps/{appID}/users/{userID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+				By "me" literal, /apps/{appID}/users/me/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
 		Grant
-			Grant to a user, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
-			Grant to a group, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+			Grant to a user
+				By address, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+				By ID, /apps/{appID}/users/{userID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+				By "me" literal, /apps/{appID}/users/me/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+			Grant to a group
+				By address, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+				By ID, /apps/{appID}/users/{userID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+				By "me" literal, /apps/{appID}/users/me/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
 		Revoke
-			Revoke from a user, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
-			Revoke from a group, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+			Revoke from a user
+				By address, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+				By ID, /apps/{appID}/users/{userID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+				By "me" literal, /apps/{appID}/users/me/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+			Revoke from a group
+				By address, /apps/{appID}/users/{accountType}:{address}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+				By ID, /apps/{appID}/users/{userID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+				By "me" literal, /apps/{appID}/users/me/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 
 User Management
 	Create a new user, /apps/{appID}/users POST
 	Delete the user, /apps/{appID}/users/{accountType}:{address} DELETE
-	Retrieve the user's data, /apps/{appID}/users/{accountType}:{address} GET
-	Modify the user's data,	/apps/{appID}/users/{accountType}:{address} POST
-	Get the country, /apps/{appID}/users/{accountType}:{address}/country GET
-	Get the display name, /apps/{appID}/users/{accountType}:{address}/display-name GET
-	Get the email address, /apps/{appID}/users/{accountType}:{address}/email-address GET
-	Update the email address, /apps/{appID}/users/{accountType}:{address}/email-address PUT
-	Remove the email address, /apps/{appID}/users/{accountType}:{address}/email-address DELETE
-	Resend the verification code email, /apps/{appID}/users/{accountType}:{address}/email-address/resend-verification POST
-	Get the verificaiton code for email, /apps/{appID}/users/{accountType}:{address}/email-address/verification-code GET
-	Vefity the email address, /apps/{appID}/users/{accountType}:{address}/email-address/verify POST
-	Get the locale, /apps/{appID}/users/{accountType}:{address}/locale GET
-	Get the phone number, /apps/{appID}/users/{accountType}:{address}/phone-number GET
-	Update the phone number, /apps/{appID}/users/{accountType}:{address}/phone-number PUT
-	Remove the phone number, /apps/{appID}/users/{accountType}:{address}/phone-number DELETE
-	Resend the SMS with the verification code, /apps/{appID}/users/{accountType}:{address}/phone-number/resend-verification POST
-	Resend the verification code for the phone number, /apps/{appID}/users/{accountType}:{address}/phone-number/reset-verification-code POST
-	Get the verification code for the phone number, /apps/{appID}/users/{accountType}:{address}/phone-number/verification-code GET
-	Verify the phone number, /apps/{appID}/users/{accountType}:{address}/phone-number/verify POST
-	Change the password, /apps/{appID}/users/{accountType}:{address}/password PUT
-	Send an email for resetting the password, /apps/{appID}/users/{accountType}:{address}/password/reset POST
-	
+	User Data
+		Retrieve the user's data
+			By address, /apps/{appID}/users/{accountType}:{address} GET
+			By ID, /apps/{appID}/users/{userID} GET
+			By "me" literal, /apps/{appID}/users/me GET
+		Modify the user's data
+			By address, /apps/{appID}/users/{accountType}:{address} POST
+			By ID, /apps/{appID}/users/{userID} POST
+			By "me" literal, /apps/{appID}/users/me POST
+		Get the country
+			By address, /apps/{appID}/users/{accountType}:{address}/country GET
+			By ID, /apps/{appID}/users/{userID}/country GET
+			By "me" literal, /apps/{appID}/users/me/country GET
+		Get the display name
+			By address, /apps/{appID}/users/{accountType}:{address}/display-name GET
+			By ID, /apps/{appID}/users/{userID}/display-name GET
+			By "me" literal, /apps/{appID}/users/me/display-name GET
+		Get the locale
+			By address, /apps/{appID}/users/{accountType}:{address}/locale GET
+			By ID, /apps/{appID}/users/{userID}/locale GET
+			By "me" literal, /apps/{appID}/users/me/locale GET
+		Email address
+			Get the email address
+				By address, /apps/{appID}/users/{accountType}:{address}/email-address GET
+				By ID, /apps/{appID}/users/{userID}/email-address GET
+				By "me" literal, /apps/{appID}/users/me/email-address GET
+			Update the email address
+				By address, /apps/{appID}/users/{accountType}:{address}/email-address PUT
+				By ID, /apps/{appID}/users/{userID}/email-address PUT
+				By "me" literal, /apps/{appID}/users/me/email-address PUT
+			Remove the email address
+				By address, /apps/{appID}/users/{accountType}:{address}/email-address DELETE
+				By ID, /apps/{appID}/users/{userID}/email-address DELETE
+				By "me" literal, /apps/{appID}/users/me/email-address DELETE
+		Phone Number
+			Get the phone number
+				By address, /apps/{appID}/users/{accountType}:{address}/phone-number GET
+				By ID, /apps/{appID}/users/{userID}/phone-number GET
+				By "me" literal, /apps/{appID}/users/me/phone-number GET
+			Update the phone number
+				By address, /apps/{appID}/users/{accountType}:{address}/phone-number PUT
+				By ID, /apps/{appID}/users/{userID}/phone-number PUT
+				By "me" literal, /apps/{appID}/users/me/phone-number PUT
+			Remove the phone number
+				By address, /apps/{appID}/users/{accountType}:{address}/phone-number DELETE
+				By ID, /apps/{appID}/users/{userID}/phone-number DELETE
+				By "me" literal, /apps/{appID}/users/me/phone-number DELETE
+	Verification
+		Email Address Verification
+			Resend the verification code email
+				By address, /apps/{appID}/users/{accountType}:{address}/email-address/resend-verification POST
+				By ID, /apps/{appID}/users/{userID}/email-address/resend-verification POST
+				By "me" literal, /apps/{appID}/users/me/email-address/resend-verification POST
+			Get the verificaiton code for email
+				By address, /apps/{appID}/users/{accountType}:{address}/email-address/verification-code GET
+				By ID, /apps/{appID}/users/{userID}/email-address/verification-code GET
+				By "me" literal, /apps/{appID}/users/me/email-address/verification-code GET
+			Vefity the email address
+				By address, /apps/{appID}/users/{accountType}:{address}/email-address/verify POST
+				By ID, /apps/{appID}/users/{userID}/email-address/verify POST
+				By "me" literal, /apps/{appID}/users/me/email-address/verify POST
+		Phone Verification
+			Resend the SMS with the verification code
+				By address, /apps/{appID}/users/{accountType}:{address}/phone-number/resend-verification POST
+				By ID, /apps/{appID}/users/{userID}/phone-number/resend-verification POST
+				By "me" literal, /apps/{appID}/users/me/phone-number/resend-verification POST
+			Resend the verification code for the phone number
+				By address, /apps/{appID}/users/{accountType}:{address}/phone-number/reset-verification-code POST
+				By ID, /apps/{appID}/users/{userID}/phone-number/reset-verification-code POST
+				By "me" literal, /apps/{appID}/users/me/phone-number/reset-verification-code POST
+			Get the verification code for the phone number
+				By address, /apps/{appID}/users/{accountType}:{address}/phone-number/verification-code GET
+				By ID, /apps/{appID}/users/{userID}/phone-number/verification-code GET
+				By "me" literal, /apps/{appID}/users/me/phone-number/verification-code GET
+			Verify the phone number
+				By address, /apps/{appID}/users/{accountType}:{address}/phone-number/verify POST
+				By ID, /apps/{appID}/users/{userID}/phone-number/verify POST
+				By "me" literal, /apps/{appID}/users/me/phone-number/verify POST
+	OAuth2
+		Request a new token, /oauth2/token POST
+		
+	Password
+		Change the password
+			By address, /apps/{appID}/users/{accountType}:{address}/password PUT
+			By ID, /apps/{appID}/users/{userID}/password PUT
+			By "me" literal, /apps/{appID}/users/me/password PUT
+		Send an email for resetting the password
+			By address, /apps/{appID}/users/{accountType}:{address}/password/reset POST
+			By ID, /apps/{appID}/users/{userID}/password/reset POST
+			By "me" literal, /apps/{appID}/users/me/password/reset POST
+	Change the status of the user
+		By address, /apps/{appID}/users/{accountType}:{address}/status PUT
+		By ID, /apps/{appID}/users/{userID}/status PUT
+		By "me" literal, /apps/{appID}/users/me/status PUT
 	Social Integration
-		Request a new token, /apps/{appID}/integration/facebook POST
-		Link with Facebook account, /apps/{appID}/users/{accountType}:{address}/facebook/link POST
-		Unlink from Facebook account, /apps/{appID}/users/{accountType}:{address}/facebook/unlink POST
+		Request a new token
+			By address, /apps/{appID}/integration/facebook POST
+		Link with Facebook account
+			By address, /apps/{appID}/users/{accountType}:{address}/facebook/link POST
+			By ID, /apps/{appID}/users/{userID}/facebook/link POST
+			By "me" literal, /apps/{appID}/users/me/facebook/link POST
+		Unlink from Facebook account
+			By address, /apps/{appID}/users/{accountType}:{address}/facebook/unlink POST
+			By ID, /apps/{appID}/users/{userID}/facebook/unlink POST
+			By "me" literal, /apps/{appID}/users/me/facebook/unlink POST
 
 Group Management
 	Create, /apps/{appID}/groups POST
@@ -117,22 +221,55 @@ Data Management
 					Revoke from a user, /apps/{appID}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
 					Revoke from a group, /apps/{appID}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 		User Scope
-			Retrieve, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID} GET
-			Verify, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID} HEAD
-			Delete, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID} DELETE
+			Retrieve
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID} GET
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketID} GET
+				By "me" lieteral, /apps/{appID}/users/me/buckets/{bucketID} GET
+			Verify
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID} HEAD
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketID} HEAD
+				By "me" lieteral, /apps/{appID}/users/me/buckets/{bucketID} HEAD
+			Delete
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID} DELETE
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketID} DELETE
+				By "me" lieteral, /apps/{appID}/users/me/buckets/{bucketID} DELETE
 			ACL (QUERY_OBJECTS_IN_BUCKET, CREATE_OBJECTS_IN_BUCKET, DROP_BUCKET_WITH_ALL_CONTENT)
 				Retrieve
-					All, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl GET
-					With the specific verb, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb} GET
+					All
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/acl GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/acl GET
+					With the specific verb
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/acl/{ACLVerb} GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/acl/{ACLVerb} GET
 				Verify
-					Verify a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID}GET
-					Verify a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+					Verify a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID}GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID}GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID}GET
+					Verify a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
 				Grant
-					Grant to a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
-					Grant to a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+					Grant to a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+					Grant to a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
 				Revoke
-					Revoke from a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
-					Revoke from a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+					Revoke from a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+					Revoke from a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 	FileBucket
 		Application Scope (##### DOES NOT EXIST IN IMPLEMENTATION? #####)
 			Retrieve, /apps/{appID}/buckets/{bucketType}:{bucketID} GET
@@ -169,22 +306,55 @@ Data Management
 					Revoke from a user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
 					Revoke from a group, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 		User Scope
-			Retrieve, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID} GET
-			Verify, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID} HEAD
-			Delete, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID} DELETE
+			Retrieve
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID} GET
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID} GET
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID} GET
+			Verify
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID} HEAD
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID} HEAD
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID} HEAD
+			Delete
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID} DELETE
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID} DELETE
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID} DELETE
 			ACL (QUERY_OBJECTS_IN_BUCKET, CREATE_OBJECTS_IN_BUCKET, DROP_BUCKET_WITH_ALL_CONTENT)
 				Retrieve
-					All, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl GET
-					With the specific verb, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb} GET
+					All
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/acl GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/acl GET
+					With the specific verb
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb} GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/acl/{ACLVerb} GET
 				Verify
-					Verify a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
-					Verify a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+					Verify a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+					Verify a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
 				Grant
-					Grant to a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
-					Grant to a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+					Grant to a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+					Grant to a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
 				Revoke
-					Revoke from a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
-					Revoke from a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+					Revoke from a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+					Revoke from a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 	Objects
 		Application Scope
 			Create, /apps/{appID}/buckets/{bucketID}/objects POST
@@ -237,30 +407,87 @@ Data Management
 					Revoke from a user, /apps/{appID}/groups/{groupID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
 					Revoke from a group, /apps/{appID}/groups/{groupID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 		User Scope
-			Create, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects POST
-			Delete, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} DELETE
-			Retrieve, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} GET
-			Check the existence, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} HEAD
-			Update (full) or create with an ID, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} PUT
-			Update (partially), /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} PATCH
-			Query, /apps/{appID}/groups/{groupID}/buckets/{bucketID}/query POST
-			Verify Body, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/body HEAD
-			Retrieve Body, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/body GET
-			Add or Replace Body, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/body PUT
-			PublishedURL, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/body/publish POST
+			Create
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects POST
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects POST
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects POST
+			Delete
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} DELETE
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID} DELETE
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID} DELETE
+			Retrieve
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} GET
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID} GET
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID} GET
+			Check the existence
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} HEAD
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID} HEAD
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID} HEAD
+			Update (full) or create with an ID
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} PUT
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID} PUT
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID} PUT
+			Update (partially)
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID} PATCH
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID} PATCH
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID} PATCH
+			Query, 
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/query POST
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/query POST
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/query POST
+			Verify Body
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/body HEAD
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID}/body HEAD
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/body HEAD
+			Retrieve Body
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/body GET
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID}/body GET
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/body GET
+			Add or Replace Body
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/body PUT
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID}/body PUT
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/body PUT
+			PublishedURL
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/body/publish POST
+				By ID, /apps/{appID}/users/{UserID}/buckets/{bucketID}/objects/{objectID}/body/publish POST
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/body/publish POST
 			ACL (READ_EXISTING_OBJECTS, WRITE_EXISTING_OBJECTS)
 				Retrieve
-					All, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl GET
-					With the specific verb, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
+					All
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/objects/{objectID}/acl GET
+						By "me" liteeral, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/acl GET
+					With the specific verb
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
+						By "me" liteeral, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
 				Verify
-					Verify a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
-					Verify a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+					Verify a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+						By "me" liteeral, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+					Verify a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+						By "me" liteeral, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
 				Grant
-					Grant to a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
-					Grant to a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+					Grant to a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+						By "me" liteeral, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+					Grant to a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+						By "me" liteeral, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
 				Revoke
-					Revoke from a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
-					Revoke from a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+					Revoke from a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+						By "me" liteeral, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+					Revoke from a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+						By "me" liteeral, /apps/{appID}/users/me/buckets/{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 	Files
 		Application Scope(##### DOES NOT EXIST IN IMPLEMENTATION? #####)
 			Create, /apps/{appID}/buckets/{bucketType}:{bucketID}/objects POST
@@ -313,30 +540,87 @@ Data Management
 					Revoke from a user, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
 					Revoke from a group, /apps/{appID}/groups/{groupID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 		User Scope
-			Create, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects POST
-			Delete, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} DELETE
-			Retrieve, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} GET
-			Check the existence, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} HEAD
-			Update (full) or create with an ID, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} PUT
-			Update (partially), /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} PATCH
-			Query, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/query POST
-			Verify Body, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body HEAD
-			Retrieve Body, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body GET
-			Add or Replace Body, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body PUT
-			PublishedURL, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body/publish POST
+			Create
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects POST
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects POST
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects POST
+			Delete
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} DELETE
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID} DELETE
+				By "me" literal, /apps/{appID}/users/me/{bucketType}:{bucketID}/objects/{objectID} DELETE
+			Retrieve
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} GET
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID} GET
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID} GET
+			Check the existence
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} HEAD
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID} HEAD
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID} HEAD
+			Update (full) or create with an ID
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} PUT
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID} PUT
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID} PUT
+			Update (partially)
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID} PATCH
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID} PATCH
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID} PATCH
+			Query
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/query POST
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/query POST
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/query POST
+			Verify Body
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body HEAD
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body HEAD
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/body HEAD
+			Retrieve Body
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body GET
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body GET
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/body GET
+			Add or Replace Body
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body PUT
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body PUT
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/body PUT
+			PublishedURL
+				By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body/publish POST
+				By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/body/publish POST
+				By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/body/publish POST
 			ACL (READ_EXISTING_OBJECTS, WRITE_EXISTING_OBJECTS)
 				Retrieve
-					All, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl GET
-					With the specific verb, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
+					All
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl GET
+					With the specific verb
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb} GET
 				Verify
-					Verify a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
-					Verify a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+					Verify a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} GET
+					Verify a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} GET
 				Grant
-					Grant to a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
-					Grant to a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+					Grant to a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} PUT
+					Grant to a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} PUT
 				Revoke
-					Revoke from a user, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
-					Revoke from a group, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+					Revoke from a user
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/UserID:{subjectUserID} DELETE
+					Revoke from a group
+						By address, /apps/{appID}/users/{accountType}:{address}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+						By ID, /apps/{appID}/users/{userID}/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
+						By "me" literal, /apps/{appID}/users/me/buckets/{bucketType}:{bucketID}/objects/{objectID}/acl/{ACLVerb}/GroupID:{subjectGroupID} DELETE
 
 Analytics
 	Post Event Data, /apps/{appID}/events POST
@@ -435,10 +719,29 @@ PushToUser
 			Update the push configuration, /apps/{appID}/groups/{groupID}/topics/{topicID}/push/subscriptions/users/{userID}/configuration PUT
 			Get the push configuration, /apps/{appID}/groups/{groupID}/topics/{topicID}/push/subscriptions/users/{userID}/configuration GET
 	User Scope
+		Topics
+			Get a list of available topics, /apps/{appID}/users/{accountType}:{address}/topics GET
+			Create a new topic, /apps/{appID}/users/{accountType}:{address}/topics/{topicID} PUT
+			Check the topic existence, /apps/{appID}/users/{accountType}:{address}/topics/{topicID} GET
+			Delete the topic, /apps/{appID}/users/{accountType}:{address}/topics/{topicID} DELETE
+		Subscribe & Unsubscribe
+			Subscribe the current to the topic (with or without a push configuration), /apps/{appID}/users/{accountType}:{address}/topics/{topicID}/push/subscriptions/users POST
+			Subscribe the specified user to the topic (with or without a push configuration), /apps/{appID}/users/{accountType}:{address}/topics/{topicID}/push/subscriptions/users/{userID} PUT
+			Check if the specified user is subscribed to the topic, /apps/{appID}/users/{accountType}:{address}/topics/{topicID}/push/subscriptions/users/{userID} GET
+			Unsubscribe the specified user from the topic, /apps/{appID}/users/{accountType}:{address}/topics/{topicID}/push/subscriptions/users/{userID} DELETE
+		Messages
+			Send a push message to the topic, /apps/{appID}/users/{accountType}:{address}/topics/{topicID}/push/messages POST
+		Configuration
+			Update the push configuration, /apps/{appID}/users/{accountType}:{address}/topics/{topicID}/push/subscriptions/users/{userID}/configuration PUT
+			Get the push configuration, /apps/{appID}/users/{accountType}:{address}/topics/{topicID}/push/subscriptions/users/{userID}/configuration GET
+
+
+Direct Push
+	Send a push message to the current user, /apps/{appID}/users/{accountType}:{address}/push/messages	 POST
 
 
 ==========================
-※ かくしたやつ
+(Currently Hidden?)
 
 Resumable transfer
 
